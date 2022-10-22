@@ -1,0 +1,29 @@
+.ourproducts {
+    text-align: center;
+    padding-top: 94px;
+    padding-bottom: 94px;
+
+    &__list {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }    
+    }
+
+    &__title {
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        width: 370px;
+        text-transform: uppercase;
+        text-align: center;
+        background-color: var(--underposition-color);
+        color: var(--additional-color);
+        padding-top: 27px;
+        padding-bottom: 27px;
+        font-weight: 700;
+        line-height: 1.14;
+        letter-spacing: 0.03em;
+    }
+}

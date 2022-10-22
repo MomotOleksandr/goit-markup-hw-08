@@ -1,0 +1,32 @@
+.networks {
+    margin: 0 32px;
+
+    &__list:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        fill: var(--socialicon-color);
+        transition-property: background-color, fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover,
+        &:focus {
+            background-color: var(--special-color);
+            fill: var(--primary-backgroundcolor);
+        }
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+

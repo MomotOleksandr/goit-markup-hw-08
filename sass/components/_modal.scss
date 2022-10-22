@@ -1,0 +1,242 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--modal-backgroundcolor);
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scaleX(1.2);
+}
+.modal {
+    width: 448px;
+    height: 501px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(1);
+    background: var(--additional-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &__closebutton {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-color: var(--additional-color);
+        width: 30px;
+        height: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+            fill: var(--special-color);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: 12px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.15;
+        text-align: center;
+        letter-spacing: 0.03em;
+        color: var(--primary-textcolor);
+    }
+
+    &__element {
+        position: relative;
+        margin: 0;
+        margin-bottom: 10px;
+
+        & label {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.17;
+            letter-spacing: 0.01em;
+            color: var(--secondary-textcolor);
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+
+        & input,
+        & textarea {
+            border: none;
+            border: 1px solid rgba(33, 33, 33, 0.2);
+            border-radius: 4px;
+
+            transition-property: border;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        & input:hover,
+        & textarea:hover,
+        & input:checked,
+        & textarea:checked,
+        & input:focus,
+        & textarea:focus {
+            border: 1px solid var(--special-color);
+        }
+
+        & input:hover~.modal__icon,
+        & input:focus~.modal__icon,
+        & input:not(:placeholder-shown)~.modal__icon {
+            fill: var(--special-color);
+        }
+
+        & input {
+            padding-left: 42px;
+            width: 403px;
+            height: 36px;
+        }
+
+        & textarea {
+            padding-left: 16px;
+            width: 429px;
+            display: block;
+            resize: none;
+        }
+
+    }
+
+    &__input {
+        padding: 0;
+        border: none;
+        border: 1px solid rgba(33, 33, 33, 0.2);
+        border-radius: 4px;
+    }
+
+    &__icon {
+        position: absolute;
+        left: 12px;
+        top: 36px;
+        transform: translateY(-50%);
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__elementtextarea {
+        width: 448px;
+        margin-bottom: 20px;
+    }
+
+    &__textarea {
+        padding-top: 12px;
+    }
+
+    &__checkbox {
+        margin: 0;
+        margin-bottom: 30px;
+        padding: 0;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &--not {
+            display: flex;
+            align-items: center;
+            margin-right: 7px;
+            width: 16px;
+            height: 15px;
+            border: 1px solid var(--primary-textcolor);
+            border-radius: 2px;
+            fill: transparent;
+        }
+
+        &__input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            position: absolute;
+        }
+
+        &__input:checked+&--not {
+            border-color: var(--special-color);
+            background-color: var(--special-color);
+            fill: var(--special-color);
+        }
+
+        &__title {
+            margin: 0;
+            padding: 0;
+            margin-right: 4px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.71;
+            letter-spacing: 0.03em;
+            color: var(--secondary-textcolor);
+        }
+
+        &__link {
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.71;
+            letter-spacing: 0.03em;
+            color: var(--special-color);
+            text-decoration-line: underline;
+        }
+    }
+
+    .modal__sendbutton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 28px;
+        background-color: var(--special-color);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        padding: 10px 52px;
+        margin: auto;
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+            background-color: var(--specialbutton-backgroundcolor);
+        }
+
+        &__title {
+            margin-right: 0;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.88;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            letter-spacing: 0.06em;
+            color: var(--additional-color);
+            margin-right: 10px;
+        }
+    }
+}
